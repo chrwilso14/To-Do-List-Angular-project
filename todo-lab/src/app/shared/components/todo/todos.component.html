@@ -1,0 +1,35 @@
+<div class="todos">
+  
+ <p> {{ title }} </p> 
+  <!-- brought in from the todos.component.ts file  -->
+
+  <div>
+    <input [(ngModel)]="filterValue" type="text" (keydown)="filteredTasks()" Placeholder="Filter your To Dos" id="Filter"/>
+  </div>
+
+  <div class="todo" *ngFor="let todo of filteredTodos; let i = index">
+    <!--*ngFor acts like a for loop - goes through the array and makes a new item for each item in the array-->
+
+    <div class="todo-item">
+      <div class="id">{{ i + 1 }}.</div>
+      <button class="completed" *ngIf="!todo.completed" (click)="completeTask(todo)">complete</button>
+      <!--*ngIf hides or shows stuff-->
+
+      <div class="task-item" [ngStyle]="{
+          'text-decoration': todo.completed ? 'line-through' : 'none'}" >
+        <!--This ng style says if completed is true, style with a line-through-->
+        {{ todo.task }}
+      </div>
+
+      <button (click)="deleteTodo(i)" class="btn"> <i class="fa fa-close"></i>
+      </button>
+      <!-- the easiest way to delete something in an array is to pass in an index -->
+    </div>
+  </div>
+
+  <div>
+    <input [(ngModel)]="newTaskInput" Placeholder="Add your to-do" id="add" />
+  </div>
+
+  <button class="add-item" (click)="addTask()">Add</button>
+</div>

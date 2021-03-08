@@ -1,0 +1,13 @@
+/* This style sheet contains all global styles for the project.  */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* This property sets the sizes of everything to include margin and padding automatically so things don't get unexpectedly larger */
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background:linear-gradient(to right, #f857a6, #ff5858);
+
+}
